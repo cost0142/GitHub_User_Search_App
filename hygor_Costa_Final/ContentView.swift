@@ -81,3 +81,10 @@ extension ContentView {
     }
    }
 }
+
+extension Color {
+    static let darkGray = Color(red: 22 / 255, green: 22 / 255, blue: 24 / 255)
+    static let lightPink = Color(red: 251 / 255, green: 234 / 255, blue: 235 / 255)
+    static let lightGreen = Color(red: 2 / 255, green: 139 / 255, blue: 139 / 255)
+//    static let backGroudColor = Color(red: 102 / 255, green: 102 / 255, blue: 102 / 255)
+}
