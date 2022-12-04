@@ -46,7 +46,7 @@ struct ContentView: View {
                 .hidden()
                 // Container 3 Fields name/min/max/button
                 VStack (alignment: .leading){
-                  // Name
+                    // Name
                     HStack (spacing: 66){
                         Text("Name : ")
                         TextField("Search name", text: $userName)
@@ -55,58 +55,58 @@ struct ContentView: View {
                             .foregroundColor(Color.darkGray)
                             .fixedSize()
                     }
-//MARK: Min Repos
-//                    HStack (spacing: 31){
-//                        Text("Min Repos : ")
-//                        TextField("Min Repos", text: $minimumNumberOfRepos)
-//                            .frame(width: 150)
-//                            .textFieldStyle(.roundedBorder)
-//                            .foregroundColor(Color.darkGray)
-//                            .fixedSize()
-//                    }
-//MARK: Min Foll
-//                    HStack{
-//                        Text("Min Followers : ")
-//                        TextField("Min Followers", text: $minimumNumberOfFollowers)
-//                            .frame(width: 150)
-//                            .textFieldStyle(.roundedBorder)
-//                            .foregroundColor(Color.darkGray)
-//                            .fixedSize()
-//                    }
+                    //MARK: Min Repos
+                    //                    HStack (spacing: 31){
+                    //                        Text("Min Repos : ")
+                    //                        TextField("Min Repos", text: $minimumNumberOfRepos)
+                    //                            .frame(width: 150)
+                    //                            .textFieldStyle(.roundedBorder)
+                    //                            .foregroundColor(Color.darkGray)
+                    //                            .fixedSize()
+                    //                    }
+                    //MARK: Min Foll
+                    //                    HStack{
+                    //                        Text("Min Followers : ")
+                    //                        TextField("Min Followers", text: $minimumNumberOfFollowers)
+                    //                            .frame(width: 150)
+                    //                            .textFieldStyle(.roundedBorder)
+                    //                            .foregroundColor(Color.darkGray)
+                    //                            .fixedSize()
+                    //                    }
                 }
-//MARK: Page Limits  --> " +/- "
-//                VStack {
-//                    Stepper("Page size: \(usersPerPage)", value: $usersPerPage, in: 1...100)
-//                        .fixedSize()
-//                        .accentColor(Color.lightPink)
-//                }
+                //MARK: Page Limits  --> " +/- "
+                //                VStack {
+                //                    Stepper("Page size: \(usersPerPage)", value: $usersPerPage, in: 1...100)
+                //                        .fixedSize()
+                //                        .accentColor(Color.lightPink)
+                //                }
                 .padding()
                 VStack {
                     //                    Image(systemName: "globe")
                     //                        .imageScale(.large)
                     //                        .foregroundColor(.accentColor)
                     //                    Text("Hello, world!")
-//MARK: BUTTON
+                    //MARK: BUTTON
                     Button("Search"){
                         print(" button Working")
-//                        searchGitHub()
+                        //                        searchGitHub()
                         let url = "\(baseUrl)\(userName)"
-                   print(url)
-                            
-//MARK:  TODO ----> FETCH HERE
-                                
+                        print(url)
+                        
+                        //MARK:  TODO ----> FETCH HERE
                         
                         
                         
-//                        let myUrl = "https://api.github.com/search/users?q=ios"
-//                        AF.request(myUrl).responseDecodable(of: UserSearchResponseModel.self) {response in
-//                            if let data = response.value {
-//                                self.userList = data.users
-//                                debugPrint(userList)
-//                            }
+                        
+                        //                        let myUrl = "https://api.github.com/search/users?q=ios"
+                        //                        AF.request(myUrl).responseDecodable(of: UserSearchResponseModel.self) {response in
+                        //                            if let data = response.value {
+                        //                                self.userList = data.users
+                        //                                debugPrint(userList)
+                        //                            }
                         
                     }
-               
+                    
                     .buttonStyle(.bordered)
                     .tint(Color.lightGreen)
                     .controlSize(.large)
@@ -142,11 +142,16 @@ struct ContentView: View {
                 .navigationDestination(isPresented: $aboutViewIsPresented, destination: {
                     AboutView()
                 })
-//                .onAppear{searchGitHub()}
+                //                .onAppear{searchGitHub()}
                 
                 .padding()
             }
+            .navigationTitle("Git Hub Search")
+            
         }
+        
+
+        
     }
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
