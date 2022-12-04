@@ -7,28 +7,7 @@
 
 import SwiftUI
 
-// Add my about here
-// Nice IMG
-// Email
-// Name
-// etc.......
-
-
-
-
-
-//struct AboutView: View {
-//    var body: some View {
-//        Text("BENNNN, World!")
-//    }
-//}
-//
-//struct AboutView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AboutView()
-//    }
-//}
-
+// MARK: Properties ABOUT
 struct AboutView: View {
     var body: some View {
         ScrollView{
@@ -40,7 +19,7 @@ struct AboutView: View {
                         .padding(.top, 60)
                 }
                 .padding(.horizontal)
-                .padding(.bottom,50)
+                .padding(.bottom,25)
                 VStack{
                     Text("GitHub SearchApp")
                         .padding(.bottom, 5)
@@ -70,8 +49,8 @@ struct AboutView: View {
             }
         }
         //Back Ground Screen AboutView
-//        .frame(maxWidth:.infinity,maxHeight: .infinity)
-//        .background(SwiftUI.Color.backGroudColor.edgesIgnoringSafeArea(.all))
+        //        .frame(maxWidth:.infinity,maxHeight: .infinity)
+        //        .background(SwiftUI.Color.backGroudColor.edgesIgnoringSafeArea(.all))
     }
 }
 
