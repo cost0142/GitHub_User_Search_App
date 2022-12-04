@@ -85,10 +85,23 @@ struct ContentView: View {
                     Button("Search"){
                         print(" button Working")
 //                        searchGitHub()
-                        let newUrl = "\(baseUrl)\(userName)"
-                        print(newUrl)
+                        let url = "\(baseUrl)\(userName)"
+                   print(url)
+                            
+//MARK:  TODO ----> FETCH HERE
+                                
+                        
+                        
+                        
+//                        let myUrl = "https://api.github.com/search/users?q=ios"
+//                        AF.request(myUrl).responseDecodable(of: UserSearchResponseModel.self) {response in
+//                            if let data = response.value {
+//                                self.userList = data.users
+//                                debugPrint(userList)
+//                            }
                         
                     }
+               
                     .buttonStyle(.bordered)
                     .tint(Color.lightGreen)
                     .controlSize(.large)
