@@ -14,6 +14,14 @@ struct ContentView: View {
    
   @State var userList = [User]()
    
+    // Add SEARCH Bar
+    // Create Search Button
+    // Creat "search Var" to Catch Input to SEARCH
+    // Pass "search Var" into Fetch Func
+    // Creat Navigation for UserSearchResultsView
+    
+    
+    
   var body: some View {
     NavigationStack{
       VStack {

@@ -12,7 +12,10 @@ struct UserSearchResultsView: View {
     let users = testUsers
     
     
+    
     var body: some View {
+       
+             
         
         NavigationStack{
             List(users) {user in
@@ -21,8 +24,6 @@ struct UserSearchResultsView: View {
                 NavigationLink(destination: UserDetailsView(), label: {
                     ListItemView(user: user)
                 })
-                
-                
             }
         }
     }

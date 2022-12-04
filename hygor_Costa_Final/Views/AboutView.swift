@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+// Add my about here
+// Nice IMG
+// Email
+// Name
+// etc.......
+
 struct AboutView: View {
     var body: some View {
         Text("Hello, World!")
