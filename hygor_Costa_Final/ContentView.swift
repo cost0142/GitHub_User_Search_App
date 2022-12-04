@@ -21,14 +21,14 @@ struct ContentView: View {
     // Creat Navigation for UserSearchResultsView
     
     //     Search Screen - Git Hub
+    
+//MARK: EXTRAS
+    let baseUrl = "https://api.github.com/search/users?q=ios"
     @State private var userName = ""
-    
-    @AppStorage("minimumNumberOfRepos") private var minimumNumberOfRepos = ""
-    @AppStorage("minimumNumberOfFollowers")  private var minimumNumberOfFollowers = ""
-    
-    @AppStorage("usersPerPage") private var usersPerPage = 30
-    
-    
+//    @AppStorage("minimumNumberOfRepos") private var minimumNumberOfRepos = ""
+//    @AppStorage("minimumNumberOfFollowers")  private var minimumNumberOfFollowers = ""
+//    @AppStorage("usersPerPage") private var usersPerPage = 30
+        
     var body: some View {
         NavigationStack{
             VStack {
@@ -50,39 +50,43 @@ struct ContentView: View {
                             .foregroundColor(Color.darkGray)
                             .fixedSize()
                     }
-                    // Min Repos
-                    HStack (spacing: 31){
-                        Text("Min Repos : ")
-                        TextField("Min Repos", text: $minimumNumberOfRepos)
-                            .frame(width: 150)
-                            .textFieldStyle(.roundedBorder)
-                            .foregroundColor(Color.darkGray)
-                            .fixedSize()
-                    }
-                    // Min Foll
-                    HStack{
-                        Text("Min Followers : ")
-                        TextField("Min Followers", text: $minimumNumberOfFollowers)
-                            .frame(width: 150)
-                            .textFieldStyle(.roundedBorder)
-                            .foregroundColor(Color.darkGray)
-                            .fixedSize()
-                    }
+//MARK: Min Repos
+//                    HStack (spacing: 31){
+//                        Text("Min Repos : ")
+//                        TextField("Min Repos", text: $minimumNumberOfRepos)
+//                            .frame(width: 150)
+//                            .textFieldStyle(.roundedBorder)
+//                            .foregroundColor(Color.darkGray)
+//                            .fixedSize()
+//                    }
+//MARK: Min Foll
+//                    HStack{
+//                        Text("Min Followers : ")
+//                        TextField("Min Followers", text: $minimumNumberOfFollowers)
+//                            .frame(width: 150)
+//                            .textFieldStyle(.roundedBorder)
+//                            .foregroundColor(Color.darkGray)
+//                            .fixedSize()
+//                    }
                 }
-               // Page Size  --> " +/- "
-                VStack {
-                    Stepper("Page size: \(usersPerPage)", value: $usersPerPage, in: 1...100)
-                        .fixedSize()
-                        .accentColor(Color.lightPink)
-                }
+//MARK: Page Limits  --> " +/- "
+//                VStack {
+//                    Stepper("Page size: \(usersPerPage)", value: $usersPerPage, in: 1...100)
+//                        .fixedSize()
+//                        .accentColor(Color.lightPink)
+//                }
                 .padding()
                 VStack {
                     //                    Image(systemName: "globe")
                     //                        .imageScale(.large)
                     //                        .foregroundColor(.accentColor)
                     //                    Text("Hello, world!")
+//MARK: BUTTON
                     Button("Search"){
                         print(" button Working")
+//                        searchGitHub()
+                        let newUrl = "\(baseUrl)\(userName)"
+                        print(newUrl)
                         
                     }
                     .buttonStyle(.bordered)
@@ -120,15 +124,12 @@ struct ContentView: View {
                 .navigationDestination(isPresented: $aboutViewIsPresented, destination: {
                     AboutView()
                 })
-                .onAppear{searchGitHub()}
+//                .onAppear{searchGitHub()}
                 
                 .padding()
             }
         }
-        
-        
     }
-    
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             ContentView()
