@@ -14,6 +14,8 @@ struct ContentView: View {
     
     @State var userList = [User]()
     
+//MARK: <<<<<<<<<<<<<<<<     sUDOcODE      >>>>>>>>>>>>>>>
+
     // Add SEARCH Bar
     // Create Search Button
     // Creat "search Var" to Catch Input to SEARCH
@@ -21,6 +23,9 @@ struct ContentView: View {
     // Creat Navigation for UserSearchResultsView
     
     //     Search Screen - Git Hub
+    
+    
+    
     
 //MARK: EXTRAS
     let baseUrl = "https://api.github.com/search/users?q=ios"
