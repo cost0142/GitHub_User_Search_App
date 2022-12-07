@@ -13,10 +13,8 @@ struct ContentView: View {
   @State var settingsViewIsPresented = false
     
   @State var userSerachResultsViewIsPresented = false
-    @State var searchTerm = ""
-    
-    
-    
+  @State var searchTerm = ""
+   
   @State var userList = [User]()
    
     // Add SEARCH Bar
@@ -30,13 +28,26 @@ struct ContentView: View {
     
     
   var body: some View {
-    NavigationStack{
-      VStack {
-       TextField("Enter Serach", text: $searchTerm)
-          Button(" Search", action: {
-              searchGitHub()
-              
-          })
+      NavigationStack {
+          VStack (alignment: .leading){
+                            // Name
+                            HStack (spacing: 66){
+                                Text("Name : ")
+                                TextField("Search name", text: $searchTerm)
+                                    .frame(width: 150)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .foregroundColor(Color.darkGray)
+                                    .fixedSize()
+                            }
+                            .padding()
+      
+        
+//      VStack {
+//       TextField("Enter Serach", text: $searchTerm)
+//          Button(" Search", action: {
+//              searchGitHub()
+//
+//          })
       }.toolbar(content: {
         ToolbarItem(placement: .navigationBarTrailing, content: {
           Button(action: {
@@ -85,7 +96,7 @@ struct ContentView_Previews: PreviewProvider {
 
 extension ContentView {
   func searchGitHub() {
-    let myUrl = "https://api.github.com/search/users?q=ios"
+//    let myUrl = "https://api.github.com/search/users?q=ios"
       
       
       
