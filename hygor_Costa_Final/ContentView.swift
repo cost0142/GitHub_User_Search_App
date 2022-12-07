@@ -11,7 +11,12 @@ import Alamofire
 struct ContentView: View {
   @State var aboutViewIsPresented = false
   @State var settingsViewIsPresented = false
-   
+    
+  @State var userSerachResultsViewIsPresented = false
+    @State var searchTerm = ""
+    
+    
+    
   @State var userList = [User]()
    
     // Add SEARCH Bar
@@ -27,10 +32,11 @@ struct ContentView: View {
   var body: some View {
     NavigationStack{
       VStack {
-        Image(systemName: "globe")
-          .imageScale(.large)
-          .foregroundColor(.accentColor)
-        Text("Hello, world!")
+       TextField("Enter Serach", text: $searchTerm)
+          Button(" Search", action: {
+              searchGitHub()
+              
+          })
       }.toolbar(content: {
         ToolbarItem(placement: .navigationBarTrailing, content: {
           Button(action: {
@@ -58,8 +64,13 @@ struct ContentView: View {
       .navigationDestination(isPresented: $aboutViewIsPresented, destination: {
         AboutView()
       })
-      .onAppear{searchGitHub()}
-        
+      .navigationDestination(isPresented: $userSerachResultsViewIsPresented, destination: {
+          UserSearchResultsView()
+      })
+      .onAppear{
+          searchGitHub()
+          
+      }
       .padding()
     }
   }
@@ -75,13 +86,61 @@ struct ContentView_Previews: PreviewProvider {
 extension ContentView {
   func searchGitHub() {
     let myUrl = "https://api.github.com/search/users?q=ios"
-    AF.request(myUrl).responseDecodable(of: UserSearchResponseModel.self) {response in
-     if let data = response.value {
-      self.userList = data.users
-      debugPrint(userList)
-     }
-    }
-   }
+      
+      
+      
+      
+      @AppStorage("resultsPerPAge") var resultsPerPage: Int = 25
+      @AppStorage("minumumRepos") var minumumRepos: Int = 0
+      @AppStorage("minimumFollowers") var minimumFollowers: Int = 0
+
+      var myUrlComponents = URLComponents(string: "https://api.github.com")!
+      
+      
+      myUrlComponents.path = "/search/users"
+      
+      let searchTermQuery = URLQueryItem(name: "q", value: searchTerm)
+      let perPageQuery = URLQueryItem(name: "per_page", value: String (resultsPerPage))
+      let repoQuery = URLQueryItem(name: "repos", value: String (minumumRepos ))
+      let followeQuery = URLQueryItem(name: "followers", value: String (minimumFollowers))
+      
+      
+    AF.request(myUrlComponents)
+          .validate(statusCode: 200..<300)
+          .responseDecodable(of: UserSearchResponseModel.self) {
+              response in
+              
+              switch response.result {
+                  
+                  
+                  
+              case .failure(let error):
+                  
+                  debugPrint(error)
+                  
+                  if let msg = error.errorDescription {
+                      print(msg)
+                  } else {
+                      print("dunno wtf happened brol!!")
+                  }
+                  
+              case .success(let value):
+                  
+                  if value.users.count != 0 {
+                      self.userList = value.users
+                  
+                      DispatchQueue.main.async {
+                          userSerachResultsViewIsPresented.toggle()
+                      }
+                  } else {
+                      print("No results founf. ")
+                  }
+                  
+              }
+              
+              
+          }
+  }
 }
 
 extension Color {

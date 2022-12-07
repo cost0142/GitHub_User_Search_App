@@ -89,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				0E4DA0EF2937F9030083A4BD /* UserModel.swift */,
+				0ED74F1229398D7400526716 /* UserSearchResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -96,7 +97,6 @@
 		0E4DA0E42937F8470083A4BD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0ED74F1229398D7400526716 /* UserSearchResponseModel.swift */,
 				0E4DA0E52937F8850083A4BD /* AboutView.swift */,
 				0E4DA0ED2937F8CB0083A4BD /* ListItemView.swift */,
 				0E4DA0E72937F8A50083A4BD /* UserSearchResultsView.swift */,
