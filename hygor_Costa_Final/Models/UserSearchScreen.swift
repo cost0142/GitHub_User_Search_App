@@ -7,25 +7,35 @@
 
 import Foundation
 
-struct UserSearchScreen: Identifiable, Codable {
-    
-    let name: String
+struct UserDetails: Identifiable, Codable {
+    let id: Int
+ 
+    let username: String
+    let avatarUrl: String
+    let userUrl: String
     let location: String
     let company: String
     let followers: Int
-    let publicGists: Int
-    let upDated: String
-    let createdata: String
+    let gists: Int
+    let repos: Int
+    let lastUpdated: String
+    let createdAt: String
     
     
     enum CodingKeys: String, CodingKey {
-        case name
-        case location
-        case company
-        case followers
-        case publicGists = "public_gists"
-        case upDated = "updated_at"
-        case createdata = "created_at"
+        case id
+        
+        case username = "login"
+        case avatarUrl = "avatar_url"
+        case userUrl = "html_url"
+        case location = "location"
+        case company = "company"
+        case followers = "followers"
+        case gists = "public_gists"
+        case repos = "public_repos"
+        case lastUpdated = "updated_at"
+        case createdAt = "created_at"
+        
     }
 }
 
