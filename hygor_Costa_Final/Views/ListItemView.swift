@@ -11,14 +11,9 @@ struct ListItemView: View {
     
     let user: User
     
-    
     var body: some View {
         HStack {
             // uses URLSession cache
-            
-            
-            
-            
             // AsyncImage
             AsyncImage(url: URL(string: user.avatarUrl)) { image in
                 
@@ -32,11 +27,12 @@ struct ListItemView: View {
             
             VStack(alignment: .leading) {
                 Text(user.username)
-                Text(user.type)
-                // Username
+//                Text(user.type)
+                Text(user.username)
             }
             Spacer()
-        } .border(.red)
+        }
+//        .border(.red)
     }
 }
 
