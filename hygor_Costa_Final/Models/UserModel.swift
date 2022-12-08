@@ -17,7 +17,6 @@ struct User: Identifiable, Codable {
         case type
         case avatarUrl = "avatar_url"
         case userUrl = "url"
-
     }
 }
 
@@ -30,3 +29,5 @@ let testUsers = [
     User(id: 2954989439, username: " papacharlipapa", type: "User", avatarUrl: "https://avatars.githubusercontent.com/u/6900718?v=4", userUrl: "https://api.github.com/users/mojombo"),
     User(id: 295849899, username: " papacharlipapa", type: "User", avatarUrl: "https://avatars.githubusercontent.com/u/6900718?v=4", userUrl: "https://api.github.com/users/mojombo")
 ]
+
+

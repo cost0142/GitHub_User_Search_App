@@ -19,7 +19,7 @@ struct UserSearchResultsView: View {
         
         NavigationStack{
             List(users) {user in
-                NavigationLink(user.username, destination: UserDetailsView())
+//                NavigationLink(user.username, destination: UserDetailsView())
                 
                 NavigationLink(destination: UserDetailsView(), label: {
                     ListItemView(user: user)

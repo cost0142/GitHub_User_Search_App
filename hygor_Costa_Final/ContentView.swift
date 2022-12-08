@@ -105,9 +105,6 @@ struct ContentView: View {
             @AppStorage("minNumberOfRepos") var minNumberOfRepos: Int = 10
             @AppStorage("minNumberOfFollowers") var minNumberOfFollowers: Int = 10
             
-            
-
-            
             var myUrlComponents = URLComponents(string: "https://api.github.com")!
             
             myUrlComponents.path = "/search/users"

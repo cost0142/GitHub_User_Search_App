@@ -27,7 +27,6 @@ struct ListItemView: View {
             
             VStack(alignment: .leading) {
                 Text(user.username)
-//                Text(user.type)
                 Text(user.username)
             }
             Spacer()
