@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct UserSearchResultsView: View {
-    let users = testUsers
+    var users = [User]()
     
     
     

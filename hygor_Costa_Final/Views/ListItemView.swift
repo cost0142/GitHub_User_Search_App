@@ -24,13 +24,8 @@ struct ListItemView: View {
                 
                 image.resizable()
                     .frame(width: 60, height: 60)
-                
-                
             } placeholder: {
-                
                 //                ProgressView()
-                
-                
                 Image(systemName: "icloud.and.arrow.down.fill")
                     .font(.system(size: 70))
             }
@@ -44,10 +39,10 @@ struct ListItemView: View {
         } .border(.red)
     }
 }
-    
-    struct ListItemView_Previews: PreviewProvider {
-        static var previews: some View {
-            ListItemView(user:testUser)
-        }
+
+struct ListItemView_Previews: PreviewProvider {
+    static var previews: some View {
+        ListItemView(user:testUser)
     }
+}
 

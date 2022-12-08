@@ -17,6 +17,8 @@ struct ContentView: View {
     
     @State var userList = [User]()
     
+
+    
     // Add SEARCH Bar
     // Create Search Button
     // Creat "search Var" to Catch Input to SEARCH
@@ -41,18 +43,10 @@ struct ContentView: View {
                 }
                 .padding()
                 
-                
-                //      VStack {
-                //       TextField("Enter Serach", text: $searchTerm)
-                //          Button(" Search", action: {
-                //              searchGitHub()
-                //
-                //          })
                 Button("Search"){
                     print(" button Working")
-                        //                    searchGitHub()
-                        print(" kjeb")
-                        
+                                            searchGitHub()
+
                     }
                 .buttonStyle(.bordered)
                                   .tint(Color.lightGreen)
@@ -61,13 +55,12 @@ struct ContentView: View {
                 }.toolbar(content: {
                     ToolbarItem(placement: .navigationBarTrailing, content: {
                         Button(action: {
-                            print("Settings Button")
                             settingsViewIsPresented.toggle()
                             
                         }, label: {
                             Image(systemName: "gearshape.2" )
                                 .font(.system(size: 25))
-                        } )
+                        })
                     })
                     ToolbarItem(placement: .navigationBarLeading, content: {
                         Button(action: {
@@ -76,7 +69,7 @@ struct ContentView: View {
                         }, label: {
                             Image(systemName: "person.crop.circle.fill.badge.questionmark" )
                                 .font(.system(size: 25))
-                        } )
+                        })
                     })
                 })
                 .navigationDestination(isPresented: $settingsViewIsPresented, destination: {
@@ -86,11 +79,10 @@ struct ContentView: View {
                     AboutView()
                 })
                 .navigationDestination(isPresented: $userSerachResultsViewIsPresented, destination: {
-                    UserSearchResultsView()
+                    UserSearchResultsView(users: userList)
                 })
                 .onAppear{
-//                    searchGitHub()
-                    
+
                 }
                 .padding()
             }
@@ -108,22 +100,26 @@ struct ContentView: View {
         func searchGitHub() {
             //    let myUrl = "https://api.github.com/search/users?q=ios"
             
+           
+            @AppStorage("resultsPerPage") var resultsPerPage: Int = 25
+            @AppStorage("minNumberOfRepos") var minNumberOfRepos: Int = 10
+            @AppStorage("minNumberOfFollowers") var minNumberOfFollowers: Int = 10
             
             
-            
-            @AppStorage("resultsPerPAge") var resultsPerPage: Int = 25
-            @AppStorage("minumumRepos") var minumumRepos: Int = 0
-            @AppStorage("minimumFollowers") var minimumFollowers: Int = 0
+
             
             var myUrlComponents = URLComponents(string: "https://api.github.com")!
-            
             
             myUrlComponents.path = "/search/users"
             
             let searchTermQuery = URLQueryItem(name: "q", value: searchTerm)
             let perPageQuery = URLQueryItem(name: "per_page", value: String (resultsPerPage))
-            let repoQuery = URLQueryItem(name: "repos", value: String (minumumRepos ))
-            let followeQuery = URLQueryItem(name: "followers", value: String (minimumFollowers))
+            let repoQuery = URLQueryItem(name: "repos", value: String (minNumberOfRepos ))
+            let followeQuery = URLQueryItem(name: "followers", value: String (minNumberOfFollowers))
+        
+                   myUrlComponents.queryItems = [
+                    searchTermQuery, perPageQuery, repoQuery, followeQuery
+                   ]
             
             
             AF.request(myUrlComponents)
@@ -132,11 +128,9 @@ struct ContentView: View {
                     response in
                     
                     switch response.result {
-                        
-                        
-                        
+
                     case .failure(let error):
-                        
+
                         debugPrint(error)
                         
                         if let msg = error.errorDescription {
@@ -156,10 +150,7 @@ struct ContentView: View {
                         } else {
                             print("No results founf. ")
                         }
-                        
                     }
-                    
-                    
                 }
         }
     }
