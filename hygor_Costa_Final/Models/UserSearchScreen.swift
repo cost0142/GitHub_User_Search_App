@@ -9,7 +9,6 @@ import Foundation
 
 struct UserDetails: Identifiable, Codable {
     let id: Int
- 
     let username: String
     let avatarUrl: String
     let userUrl: String
@@ -24,7 +23,6 @@ struct UserDetails: Identifiable, Codable {
     
     enum CodingKeys: String, CodingKey {
         case id
-        
         case username = "login"
         case avatarUrl = "avatar_url"
         case userUrl = "html_url"

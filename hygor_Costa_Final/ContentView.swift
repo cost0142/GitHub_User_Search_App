@@ -18,7 +18,7 @@ struct ContentView: View {
     @State var userList = [User]()
     
 
-    
+    //MARK: ------> TODO
     // Add SEARCH Bar
     // Create Search Button
     // Creat "search Var" to Catch Input to SEARCH
@@ -31,9 +31,10 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            VStack (alignment: .leading){
+            VStack (alignment: .center){
                 // Name
-                HStack (spacing: 66){
+                
+                HStack (){
                     Text("Name : ")
                     TextField("Search name", text: $searchTerm)
                         .frame(width: 150)
@@ -43,15 +44,18 @@ struct ContentView: View {
                 }
                 .padding()
                 
+                
                 Button("Search"){
-                    print(" button Working")
-                                            searchGitHub()
-
+                    searchGitHub()
                     }
+                .frame(alignment: .center)
                 .buttonStyle(.bordered)
                                   .tint(Color.lightGreen)
                                   .controlSize(.large)
-                                  .padding(.top)
+                                  .padding()
+                                  
+                
+                
                 }.toolbar(content: {
                     ToolbarItem(placement: .navigationBarTrailing, content: {
                         Button(action: {

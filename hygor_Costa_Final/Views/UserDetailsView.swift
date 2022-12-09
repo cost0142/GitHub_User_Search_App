@@ -36,11 +36,20 @@ struct UserDetailsView: View {
                 .foregroundColor(.blue)
             
             
-            Text("Name: \(userDetails.username)")
+
+            
+            if let name = user.name{
+                Text("Name: \(userDetails.username)")
+                    .padding(1)
+            } else {
+                Text( " Name: No data Founf")
+            }
+            
+            
+            
+            Text("Location: \(userDetails.location ?? "Unknown")")
                 .padding(1)
-            Text("Location: \(userDetails.location)")
-                .padding(1)
-            Text("Company: \(userDetails.company)")
+            Text("Company: \(userDetails.company ?? "Swifty Inc")")
                 .padding(1)
             Text("Followers: \(String(userDetails.followers))")
                 .padding(1)
@@ -74,10 +83,13 @@ extension UserDetailsView {
                         print("no clue what happened")
                     }
                     
-                case.success(var user):
+                case.success(let user):
                     self.userDetails = user.self
                     debugPrint(userDetails)
                 }
             }
     }}
+
+
+
 
