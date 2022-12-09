@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E4B53F82942914A005CC908 /* UserSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4B53F72942914A005CC908 /* UserSearchScreen.swift */; };
 		0E4DA0D62937F8250083A4BD /* hygor_Costa_FinalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4DA0D52937F8250083A4BD /* hygor_Costa_FinalApp.swift */; };
 		0E4DA0D82937F8250083A4BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4DA0D72937F8250083A4BD /* ContentView.swift */; };
 		0E4DA0DA2937F8280083A4BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E4DA0D92937F8280083A4BD /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E4B53F72942914A005CC908 /* UserSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchScreen.swift; sourceTree = "<group>"; };
 		0E4DA0D22937F8250083A4BD /* hygor_Costa_Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hygor_Costa_Final.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E4DA0D52937F8250083A4BD /* hygor_Costa_FinalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hygor_Costa_FinalApp.swift; sourceTree = "<group>"; };
 		0E4DA0D72937F8250083A4BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				0E4DA0EF2937F9030083A4BD /* UserModel.swift */,
 				0ED74F1229398D7400526716 /* UserSearchResponseModel.swift */,
+				0E4B53F72942914A005CC908 /* UserSearchScreen.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				0E4DA0EA2937F8B50083A4BD /* UserDetailsView.swift in Sources */,
 				0E4DA0EE2937F8CB0083A4BD /* ListItemView.swift in Sources */,
 				0E4DA0F02937F9030083A4BD /* UserModel.swift in Sources */,
+				0E4B53F82942914A005CC908 /* UserSearchScreen.swift in Sources */,
 				0E4DA0EC2937F8C00083A4BD /* AppSettingsView.swift in Sources */,
 				0E4DA0E82937F8A50083A4BD /* UserSearchResultsView.swift in Sources */,
 				0ED74F1329398D7400526716 /* UserSearchResponseModel.swift in Sources */,

@@ -15,3 +15,8 @@ struct hygor_Costa_FinalApp: App {
         }
     }
 }
+
+//
+//@State var userDetails: UserDetails?
+//@State var isDataLoaded = false
+//@State var url: String
