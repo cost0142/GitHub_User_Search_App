@@ -21,7 +21,7 @@ struct UserSearchResultsView: View {
             List(users) {user in
 //                NavigationLink(user.username, destination: UserDetailsView())
                 
-                NavigationLink(destination: UserDetailsView(user: user), label: {
+                NavigationLink(destination: UserDetailsView(url: user.userUrl), label: {
                     ListItemView(user: user)
                 })
             }

@@ -31,7 +31,6 @@ struct ListItemView: View {
             }
             Spacer()
         }
-//        .border(.red)
     }
 }
 

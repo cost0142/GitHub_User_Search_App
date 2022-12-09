@@ -9,67 +9,72 @@ import SwiftUI
 import Alamofire
 
 struct UserDetailsView: View {
-    var user: User
-    
-    @State private var userDetails = UserDetails(id: 0, username: " ", avatarUrl: " ", userUrl: " ", location: " ", company: " ", followers: 0, gists: 0, repos: 0, lastUpdated: " ", createdAt: " ")
+    @State var user: UserDetails?
+    @State var isDataLoaded = false
+    @State var url: String
     
     var body: some View {
-        VStack {
-            AsyncImage(url: URL(string: user.avatarUrl)){ image in
-                image.resizable()
-                    .frame(width: 250, height: 250)
-            } placeholder: {
-                // ProgressView()
-                // Placeholder Image
-                Image(systemName: "icloud.and.arrow.down.fill")
-                    .font(.system(size: 60))
-            }
-            Text(userDetails.userUrl)
-                .onTapGesture {
-                    let url = URL(string: userDetails.userUrl)!
-                    if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    } else {
-                        UIApplication.shared.open(url)
-                    }
+        VStack { if isDataLoaded {
+            if let user{
+                AsyncImage(url: URL(string: user.avatarUrl)!){ image in
+                    image.resizable()
+                        .frame(width: 250, height: 250)
+                } placeholder: {
+                    // Placeholder Image
+                    Image(systemName: "icloud.and.arrow.down.fill")
+                        .font(.system(size: 60))
                 }
-                .foregroundColor(.blue)
-            
-            
-
-            
-            if let name = user.name{
-                Text("Name: \(userDetails.username)")
+                
+                Link(user.userUrl, destination: URL(string: user.userUrl)!)
                     .padding(1)
-            } else {
-                Text( " Name: No data Founf")
-            }
-            
-            
-            
-            Text("Location: \(userDetails.location ?? "Unknown")")
-                .padding(1)
-            Text("Company: \(userDetails.company ?? "Swifty Inc")")
-                .padding(1)
-            Text("Followers: \(String(userDetails.followers))")
-                .padding(1)
-            Text("Repos: \(String(userDetails.repos))")
-                .padding(1)
-            Text("LastUp Dated: \(userDetails.lastUpdated)")
-                .padding(1)
-            Text("Created at: \(userDetails.createdAt)")
-                .padding(1)
-        }.onAppear(perform: {
-            
-            getUserData()
-        
-    })
+                
+                
+                
+                if let name = user.username{
+                    Text("Name: \(name)")
+                        .padding(1)
+                } else {
+                    Text("No username provided")
+                }
+
+                if let location = user.location{
+                    Text("Location: \(location)")
+                        .padding(1)
+                } else {
+                    Text("No location provided")
+                }
+
+                if let company = user.company{
+                    Text("Company: \(company)")
+                        .padding(1)
+                } else {
+                    Text("No company provided")
+                }
+
+                Text("Followers: \(String(user.followers))")
+                    .padding(1)
+
+                Text("Public repos: \(String(user.repos))")
+                    .padding(1)
+
+                Text("Public gists: \(String(user.gists))")
+                    .padding(1)
+
+                Text("Last update: \(user.lastUpdated)")
+                    .padding(1)
+
+                Text("Account created: \(user.createdAt)")
+                    .padding(1)
+            }}}.onAppear(perform: {
+                getUserData()
+                
+            })
     }
 }
 
 extension UserDetailsView {
     func getUserData() {
-        AF.request(user.userUrl)
+        AF.request(url)
             .validate(statusCode : 200..<300)
             .responseDecodable(of: UserDetails.self) {
                 response in
@@ -82,14 +87,9 @@ extension UserDetailsView {
                     } else {
                         print("no clue what happened")
                     }
-                    
                 case.success(let user):
-                    self.userDetails = user.self
-                    debugPrint(userDetails)
+                    self.user = user
+                    isDataLoaded.toggle()
                 }
             }
     }}
-
-
-
-

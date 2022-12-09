@@ -12,8 +12,8 @@ struct UserDetails: Identifiable, Codable {
     let username: String
     let avatarUrl: String
     let userUrl: String
-    let location: String
-    let company: String
+    let location: String?
+    let company: String?
     let followers: Int
     let gists: Int
     let repos: Int
