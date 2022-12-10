@@ -44,7 +44,8 @@ struct AboutView: View {
                                 .accentColor(.lightGreen)
                                 .frame(width: 250)
                         }
-                    }.padding(.bottom, 5)
+                    }.padding()
+                    Spacer()
                 }
             }
         }
