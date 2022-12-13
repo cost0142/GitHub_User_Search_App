@@ -15,22 +15,17 @@ struct ContentView: View {
     @State var searchTerm = ""
     @State var userList = [User]()
     
-    
     var body: some View {
         NavigationStack {
             VStack (alignment: .center){
-                Text( "Bob Search")
+                Text( "GitHub Search")
                     .bold()
-                    .font(.system(size: 50))
+                    .font(.system(size: 30))
                 HStack{
-                    Image("Bob").resizable()
-                        .frame(width: 150, height: 150)
-                        .mask(Circle())
+                    Image("github-octocat").resizable()
+                        .frame(width: 450, height: 350)
                         .padding(.top, 60)
                 }
-                
-                
-                // Name
                 
                 HStack (){
                     Text("Name : ")
@@ -93,7 +88,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
 
 extension ContentView {
     func searchGitHub() {
