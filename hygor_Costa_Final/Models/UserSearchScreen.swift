@@ -20,7 +20,6 @@ struct UserDetails: Identifiable, Codable {
     let lastUpdated: String
     let createdAt: String
     
-    
     enum CodingKeys: String, CodingKey {
         case id
         case username = "login"
@@ -33,10 +32,10 @@ struct UserDetails: Identifiable, Codable {
         case repos = "public_repos"
         case lastUpdated = "updated_at"
         case createdAt = "created_at"
-        
     }
 }
 
+//MARK: Object Returned
 //{
 //    "login": "nice",
 //    "id": 2760100,

@@ -28,47 +28,45 @@ struct UserDetailsView: View {
                 Link(user.userUrl, destination: URL(string: user.userUrl)!)
                     .padding(1)
                 
-                
-                
                 if let name = user.username{
                     Text("Name: \(name)")
                         .padding(1)
                 } else {
                     Text("No username provided")
                 }
-
+                
                 if let location = user.location{
                     Text("Location: \(location)")
                         .padding(1)
                 } else {
                     Text("No location provided")
                 }
-
+                
                 if let company = user.company{
                     Text("Company: \(company)")
                         .padding(1)
                 } else {
                     Text("No company provided")
                 }
-
                 Text("Followers: \(String(user.followers))")
                     .padding(1)
-
+                
                 Text("Public repos: \(String(user.repos))")
                     .padding(1)
-
+                
                 Text("Public gists: \(String(user.gists))")
                     .padding(1)
-
+                
                 Text("Last update: \(user.lastUpdated)")
                     .padding(1)
-
+                
                 Text("Account created: \(user.createdAt)")
                     .padding(1)
-            }}}.onAppear(perform: {
-                getUserData()
-                
-            })
+            }
+        }
+        }.onAppear(perform: {
+            getUserData()
+        })
     }
 }
 

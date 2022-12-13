@@ -45,6 +45,7 @@ struct AppSettingsView: View {
                 })
             }
             .padding()
+             Spacer()
             .lineLimit(1)
             
         }

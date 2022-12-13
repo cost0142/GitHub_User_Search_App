@@ -11,16 +11,9 @@ import SwiftUI
 struct UserSearchResultsView: View {
     var users = [User]()
     
-    
-    
     var body: some View {
-       
-             
-        
         NavigationStack{
             List(users) {user in
-//                NavigationLink(user.username, destination: UserDetailsView())
-                
                 NavigationLink(destination: UserDetailsView(url: user.userUrl), label: {
                     ListItemView(user: user)
                 })
@@ -28,7 +21,6 @@ struct UserSearchResultsView: View {
         }
     }
 }
-
 struct UserSearchResultsView_Previews: PreviewProvider {
     static var previews: some View {
         UserSearchResultsView()
